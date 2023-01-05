@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <!-- font awesome -->
+  <script src="https://kit.fontawesome.com/d08fba0fb1.js" crossorigin="anonymous"></script>
+  <!-- material -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <header class="bg-green-mq margitn-b-1mq">
+    <nav class="container header header-mq ">
+      <a class="logo" href="/">expence-tracker</a>
+      <input type="checkbox" id="click" />
+      <label class="menu-btn" for="click"><i class="fa-solid fa-bars"></i></label>
+      <%if(user){%>
+        <ul class="header">
+          <li><a class="font-size color-black color-white-mq font-weight" href="/users/logout">sign-out</a></li>
+          <div class="dropdown">
+            <div class="dropdown__trigger">
+              <%if(user.profilelink){%>
+                <img class="full-width profileImage " src="<%=user.profilelink%>" alt="profileImage">
+                <%}else{%>
+                  <img class="full-width profileImage " src="/images/<%=user.profileImage%>" alt="profileImage">
+                  <%}%>
+
+            </div>
+            <div class="dropdown__content">
+              <p class="color-black">
+                name: <%=user.name%>
+              </p>
+              <p class="color-black">
+                email: <%=user.email%>
+              </p>
+              <%if(user.age){%>
+                <p class="color-black">
+                  age: <%=user.age%>
+                </p>
+                <%}%>
+
+                  <%if(user.phone){%>
+                    <p class="color-black">
+                      mobile: <%=user.phone%>
+                    </p>
+                    <%}%>
+
+                      <%if(user.country){%>
+                        <p class="color-black">
+                          Country: <%=user.country%>
+                        </p>
+                        <%}%>
+                          <%if(user.provider){%>
+                            <p class="color-black">
+                              provider: <%=user.provider%>
+                            </p>
+                            <%}%>
+
+
+            </div>
+          </div>
+        </ul>
+        <%}else{%>
+          <ul class="header">
+            <li><a class="font-size color-black color-white-mq col font-weight" href="/users/sign-in">sign-in</a></li>
+            <li class="margin-rlp5"><a class="font-size  color-white-mq color-black font-weight"
+                href="/users/sign-up">sign-up</a></li>
+          </ul>
+          <% }%>
+
+
+
+    </nav>
+  </header>

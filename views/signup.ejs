@@ -1,0 +1,38 @@
+<% include persists/header%>
+    <section class="">
+
+        <div class="sidebar container box-shadow flex-mq flex-colum-mq height-auto-mq ">
+            <!-- Sidebar -->
+            <aside class="sidebar__sidebar width-100-mq margin-t6-mq">
+                <h1 class="form-heading">welcome back !</h1>
+                <p class="color-white-light margin-tbp5">To keep connected with us please login <br> with your personal
+                    info</p>
+                <a href="/users/sign-in"><button class="btn btn-primary">Sign in</button></a>
+            </aside>
+
+            <!-- Main -->
+            <main class="sidebar__main flex justify-center align-center">
+                <form class="width-70 form width-100-mq" action="/users/sign-up" method="post"
+                    enctype="multipart/form-data">
+                    <h1 class="form-heading margin-tbp5">Create Account</h1>
+                    <input class="width-100-mq" type="text" name="name" placeholder=" Full name" required>
+                    <input class="width-100-mq" type="email" name="email" placeholder="Email" required>
+                    <div class="flex align-center  width-50 margin-auto width-100-mq">
+                        <input class="width-100" type="password" name="password" id="password-input"
+                            placeholder="password(min 5 characters)" required>
+                        <span class="material-symbols-outlined visivilty cursur-pointer">
+                            visibility_off
+                        </span>
+                    </div>
+                    <input class="width-100-mq" type="number" name="age" placeholder=" age" required>
+                    <input class="width-100-mq" type="number" name="phone" placeholder=" Mobile" required>
+                    <input class="width-100-mq" type="text" name="country" placeholder=" Country" required>
+                    <input class="bg-white-light width-100-mq" type="file" name="profileImage"
+                        placeholder="Pofile image">
+                    <br>
+                    <button class=" btn-sucess margin-tbp5">Sign up</button>
+                </form>
+            </main>
+        </div>
+    </section>
+    <% include persists/footer%>

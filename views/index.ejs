@@ -1,0 +1,146 @@
+<% include persists/header%>
+  <section>
+    <div class="container height-full height-auto-mq padingp5 box-shadow">
+      <h1 class="text-center font-size3rem  font-size2rem-mq text-shadow margin-b2 margin-t3-mq">
+        expence tracker</h1>
+      <div class=" height90  flex flex-direction-column ">
+        <!-- crrent balence div -->
+        <div class="order-mq position-fixed-mq">
+          <h3>Your current balence</h3>
+          <% var total=0%>
+            <% var expence=0%>
+              <%if(allincomeAmmount){%>
+                <%allincomeAmmount.forEach((obj)=>{%>
+                  <%total+=Number(obj.amount)%>
+                    <%})%>
+
+                      <%}%>
+                        <!--expenceAmmount -->
+                        <%if(allExpenceAmmount){%>
+                          <%allExpenceAmmount.forEach((obj)=>{%>
+                            <%expence+=Number(obj.amount)%>
+                              <%})%>
+                                <%}%>
+                                  <p class="text-center font-size1p5rem">
+                                    <strong class="font-size2rem">₹ </strong>
+                                    <%=total -expence %>
+                                  </p>
+
+        </div>
+
+        <!-- add new transition -->
+        <div class="flex height90  justify-around align-center width-100  flex-mq flex-colum-mq height-auto-mq ">
+          <div class="box-shadow padingp5 height70 width-40 width-100-mq height-auto-mq margitn-tb-1mq">
+            <h3>Add new transition</h3>
+            <form action="/transition/new" method="post" class="transition-form ">
+              <label class="text-shadow-label"> category Name</label>
+              <input type="text" name="source" placeholder="Add category" required> <br>
+              <!-- select income or expence -->
+              <div class=" flex  flex-direction-column width-100  justify-around">
+                <span class="text-shadow-label">Type</span>
+                <div class=" flex type-div justify-around ">
+                  <div class="flex width100">
+                    <label class="text-shadow-label margin-rlp5 " for="income">income</label>
+                    <input type="radio" name="work" id="income" value="income" required>
+                  </div>
+                  <div class="flex">
+                    <label class="text-shadow-label margin-rlp5 " for="expence">expence</label>
+                    <input type="radio" name="work" id="expence" value="expence" required>
+                  </div>
+                </div>
+              </div>
+              <label class="text-shadow-label" for="">Amount</label>
+              <input type="number" name="amount" placeholder="amount" required><br>
+              <label class="text-shadow-label" for="">Date</label>
+              <input type="date" name="date" placeholder="date" required> <br>
+              <button class="form-btn" type="submit">Add transition</button>
+            </form>
+          </div>
+
+          <!-- select category form -->
+          <div class="height70 width-40 box-shadow padingp5 width-100-mq  height-auto-mq margitn-b-3mq  margin-t3-mq ">
+            <h3>filter by source of income & expense category
+            </h3>
+            <div class="flex justify-around box-shadow padingp5 margin-tbp5">
+              <!-- income source filter -->
+              <form action="/" method="GET" class="">
+                <select name="source" id="">
+                  <option value="">select income source</option>
+                  <%allIncomeSource.forEach((source)=>{%>
+                    <option value="<%=source%>">
+                      <%=source%>
+                    </option>
+                    <%})%>
+                </select>
+                <button class="form-btn" type="submit">submit</button>
+              </form>
+              <!-- expence source filter -->
+              <form action="/" method="GET" class="">
+                <select name="source" id="">
+                  <option value="">select expence source</option>
+                  <%allExpenceSource.forEach((source)=>{%>
+                    <option value="<%=source%>">
+                      <%=source%>
+                    </option>
+                    <%})%>
+                </select>
+                <button class="form-btn" type="submit">submit</button>
+              </form>
+            </div>
+            <!-- select income or expence history -->
+            <div class="overflow-scroll scrollbar-none height70">
+              <h3>Your Transition</h3>
+              <!-- history list -->
+              <!-- income list -->
+              <ul>
+                <%if(incomeAmmount){%>
+                  <%incomeAmmount.reverse().forEach((obj)=>{%>
+                    <div class="histary-list flex justify-around">
+                      <!-- 1 -->
+                      <li class="font-sizep7mq">
+                        <%=obj.source%>
+                      </li>
+                      <!-- 3 -->
+                      <li class="font-sizep7mq">
+                        Rs: <%=obj.amount%>
+                      </li>
+                      <a class="color-red" href="/transition/<%=obj._id%>/delete"><i class="fa-solid fa-trash"></i></a>
+                      <li class="font-sizep7mq">
+                        <%=obj.date%>
+                      </li>
+                      <li class="font-sizep7mq">Income</li>
+                    </div>
+
+                    <%})%>
+                      <%}%>
+              </ul>
+              <!-- expence list -->
+              <ul>
+                <%if(expenceAmmount){%>
+                  <%expenceAmmount.reverse().forEach((obj)=>{%>
+                    <div class="expence-list flex justify-around">
+                      <!-- 1 -->
+                      <li class="font-sizep7mq">
+                        <%=obj.source%>
+                      </li>
+                      <!-- 3 -->
+                      <li class="font-sizep7mq">
+                        Rs: <%=obj.amount%>
+                      </li>
+                      <a class="color-red" href="/transition/<%=obj._id%>/delete"><i class="fa-solid fa-trash"></i></a>
+                      <li class="font-sizep7mq">
+                        <%=obj.date%>
+                      </li>
+                      <li class="font-sizep7mq">Expence</li>
+                    </div>
+
+                    <%})%>
+                      <%}%>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <% include persists/footer%>

@@ -1,0 +1,18 @@
+<% include persists/header%>
+    <section>
+
+        <div class="container height-full flex justify-center align-center">
+            <div class="padingp5 box-shadow">
+                <form class="flex align-center flex-direction-column" action="/users/verify-otp" method="post">
+                    <h3 class="margin-tbp5">Check your email and create new password</h3>
+                    <input class="width-100" id="otp-input1" type="number" name="otp" id="" placeholder=" write OTP...">
+                    <input class="width-100 " id="otp-input2" type="text" name="password"
+                        placeholder="Create new password...">
+                    <h1 class="coundown">00</h1>
+                    <button class="form-btn  margin-auto" id="otp-btn" type="submit"> Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+    <% include persists/footer%>

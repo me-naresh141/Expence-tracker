@@ -281,9 +281,9 @@ a {
 }
 
 .box-shadow {
-  box-shadow: 0px 0px 1px 3px rgb(231, 231, 247);
+  box-shadow: -10px 5px 30px rgb(156, 156, 159);
+  /* box-shadow: -10px 5px 30px rgb(194, 194, 195); */
 }
-
 .text-shadow {
   text-shadow: -1px -3px 1px rgb(116, 170, 232);
 }
@@ -329,4 +329,8 @@ a {
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+.error {
+  color: red;
 }

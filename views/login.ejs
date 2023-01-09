@@ -14,22 +14,28 @@
             <main class="sidebar__main flex justify-center align-center">
                 <form class="width-70 form width-100-mq" action="/users/sign-in" method="post">
                     <h1 class="form-heading margin-tbp5">Account login</h1>
-                    <input class="width-100-mq" type="email" name="email" placeholder="Email">
-                    <div class="flex align-center  width-50 margin-auto width-100-mq">
-                        <input class="width-100" type="password" name="password" id="password-input"
-                            placeholder="password(min 5 characters)">
-                        <span class="material-symbols-outlined visivilty cursur-pointer">
-                            visibility_off
-                        </span>
-                    </div>
-                    <button class=" btn-sucess margin-tbp5">sign in</button> <br>
-                    <strong class="color-white-light">or</strong>
-                    <div class="margin-tbp5">
-                        <a class="icon" href="/auth/github"><i class="fa-brands fa-github"></i></a>
-                        <a class="icon" href="/auth/google"><i class="fa-brands fa-google-plus-g"></i></a>
-                    </div>
-                    <a class="color-white-light forget-password margin-tbp5 " href="/users/forget-password">Forgare
-                        Password</a>
+                    <%if(error){%>
+                        <p class="error">
+                            <%=error%>
+                        </p>
+                        <%}%>
+                            <input class="width-100-mq" type="email" name="email" placeholder="Email">
+                            <div class="flex align-center  width-50 margin-auto width-100-mq">
+                                <input class="width-100" type="password" name="password" id="password-input"
+                                    placeholder="password(min 5 characters)">
+                                <span class="material-symbols-outlined visivilty cursur-pointer">
+                                    visibility_off
+                                </span>
+                            </div>
+                            <button class=" btn-sucess margin-tbp5">sign in</button> <br>
+                            <strong class="color-white-light">or</strong>
+                            <div class="margin-tbp5">
+                                <a class="icon" href="/auth/github"><i class="fa-brands fa-github"></i></a>
+                                <a class="icon" href="/auth/google"><i class="fa-brands fa-google-plus-g"></i></a>
+                            </div>
+                            <a class="color-white-light forget-password margin-tbp5 "
+                                href="/users/forget-password">Forgare
+                                Password</a>
                 </form>
             </main>
         </div>
